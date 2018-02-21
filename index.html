@@ -87,7 +87,7 @@
 			<!-- end section -->
 
 			<!-- start modals -->
-			<div class="modal modal__info">
+			<div class="modal modal__pre">
 				<header class="modal__header">
 					<h1>Welcome Udacian</h1>
 				</header>
@@ -97,7 +97,36 @@
 				</article>
 
 				<footer class="modal__footer">
-					<button id="next" class="btn">Next</button>
+					<button class="btn" onclick="userName()">Next</button>
+				</footer>
+			</div>
+
+			<div class="modal modal__pre">
+				<header class="modal__header">
+					<h1>Hi, Udacian!</h1>
+				</header>
+
+				<article class="modal__content">
+					<p>How may I call you?</p>
+					<input type="text" name="username" id="username">
+				</article>
+
+				<footer class="modal__footer">
+					<button class="btn" onclick="gameMode()">Next</button>
+				</footer>
+			</div>
+
+			<div class="modal modal__pre">
+				<header class="modal__header">
+					<h1>Hi, <span id="display-username"></span></h1>
+				</header>
+
+				<article class="modal__content">
+					<p>worked</p>
+				</article>
+
+				<footer class="modal__footer">
+					<button class="btn" onclick="startGame()">Next</button>
 				</footer>
 			</div>
 
