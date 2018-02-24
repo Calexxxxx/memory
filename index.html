@@ -6,22 +6,23 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Test Your Memory with this classic game">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="theme-color" content="#1c2746">
+        <meta name="theme-color" content="rgb(66, 178, 224)">
 		<!-- title -->
 		<title>Memory</title>
 		<!-- favicon -->
         <link rel="apple-touch-icon" href="icon.png">
 		<!-- google fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
-		<!-- layout styles -->
-		<link rel="stylesheet" href="css/layout.css">
-		<link rel="stylesheet" media="screen and (min-width: 550px)" href="css/layout-md.css">
-		<link rel="stylesheet" media="screen and (min-width: 768px)" href="css/layout-lg.css">
-		<link rel="stylesheet" media="screen and (min-width: 1024px)" href="css/layout-xl.css">
+		<!-- font awesome -->
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 		<!-- game elements styles -->
         <link rel="stylesheet" href="css/game-elements.css">
 		<!-- global styles -->
 		<link rel="stylesheet" href="css/main.css">
+		<!-- layout styles -->
+		<link rel="stylesheet" media="screen and (min-width: 414px)" href="css/layout-sm.css">
+		<link rel="stylesheet" media="screen and (min-width: 550px)" href="css/layout-md.css">
+		<link rel="stylesheet" media="screen and (min-width: 768px)" href="css/layout-lg.css">
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -31,165 +32,184 @@
 		<!-- start main -->
 		<main>
 
-			<!-- start header -->
-			<!-- <header class="match__header">
-				<h1 class="match__header__title"></h1>
-			</header> -->
-			<!-- end header	 -->
-
 			<!-- start section -->
-			<!-- <section class="score">
+			<section class="score" id="score">
+
+                <!-- start stars -->
 				<ul class="score__stars">
-					<li>s1</li>
-					<li>s2</li>
-					<li>s3</li>
-				</ul>
+                    <!-- small star -->
+					<li class="score__star__icon score__star__icon-small">
 
-				<p><span class="score__moves">3</span> Moves</p>
+						<i class="far" id="star-one"></i>
 
-				<ul class="score__buttons">
-					<li class="score__reset">R</li>
-					<li class="score__settings">S</li>
-					<li class="score_highscore">H</li>
+					</li>
+                    <!-- big star -->
+					<li class="score__star__icon">
+
+						<i class="far" id="star-two"></i>
+
+					</li>
+                    <!-- small star -->
+					<li class="score__star__icon score__star__icon-small">
+
+						<i class="far" id="star-three"></i>
+
+					</li>
 				</ul>
-			</section> -->
+                <!-- end stars -->
+
+                <!-- start moves -->
+				<div class="score__moves">
+                    Total moves
+                    <span id="move"></span>
+                </div>
+                <!-- end moves -->
+
+                <!-- start timer -->
+				<div class="score__timer">
+					<span class="min" id="min">00</span> : <span class="sec" id="sec">00</span>
+				</div>
+                <!-- end timer -->
+
+                <!-- start reset -->
+				<ul class="score__reset__buttons" onclick="reset(event)">
+					<li>
+						<i class="fas fa-redo"></i>
+					</li>
+				</ul>
+                <!-- end reset -->
+
+			</section>
 			<!-- end section -->
 
 			<!-- start section -->
-			<!-- <section class="game">
-				<ul class="game__deck">
-					<li class="game__deck__card">
-						<img src="./img/img1.jpg" alt="memory card">
-					</li>
-					<li class="game__deck__card">
-						<img src="./img/img2.jpg" alt="memory card">
-					</li>
-					<li class="game__deck__card">
-						<img src="./img/img3.jpg" alt="memory card">
-					</li>
-					<li class="game__deck__card">
-						<img src="./img/img4.jpg" alt="memory card">
-					</li>
-					<li class="game__deck__card">
-						<img src="./img/img5.jpg" alt="memory card">
-					</li>
-					<li class="game__deck__card">
-						<img src="./img/img6.jpg" alt="memory card">
-					</li>
-					<li class="game__deck__card">
-						<img src="./img/img7.jpg" alt="memory card">
-					</li>
-					<li class="game__deck__card">
-						<img src="./img/img8.jpg" alt="memory card">
-					</li>
+			<section class="game" id="game">
+
+                <!-- start game deck -->
+				<ul class="game__deck" id="card-deck">
 				</ul>
-			</section> -->
+                <!-- end game deck -->
+
+			</section>
 			<!-- end section -->
 
 			<!-- start modals -->
+            <!-- start modal welcome -->
 			<div class="modal modal__pre">
-				<header class="modal__header">
-					<h1>Welcome Udacian</h1>
-				</header>
 
-				<article class="modal__content">
-					<p>This game is best played on a medium sized screen e.g. tablet and bigger.</p>
-				</article>
-
-				<footer class="modal__footer">
-					<button class="btn" onclick="userName()">Next</button>
-				</footer>
-			</div>
-
-			<div class="modal modal__pre">
+                <!-- start header -->
 				<header class="modal__header">
 					<h1>Hi, Udacian!</h1>
 				</header>
+                <!-- end header -->
 
+                <!-- start article -->
 				<article class="modal__content">
 					<p>How may I call you?</p>
 					<input type="text" name="username" id="username">
 				</article>
+                <!-- end article -->
 
+                <!-- start footer -->
 				<footer class="modal__footer">
-					<button class="btn" onclick="gameMode()">Next</button>
+					<button class="btn" onclick="setUsername()">Next</button>
 				</footer>
-			</div>
+                <!-- end footer -->
 
+			</div>
+            <!-- end modal welcome -->
+
+            <!-- start modal start game -->
 			<div class="modal modal__pre">
+
+                <!-- start header -->
 				<header class="modal__header">
-					<h1>Game Mode</h1>
+					<h1>Start The Game</h1>
 				</header>
+                <!-- end header -->
 
+                <!-- start article -->
 				<article class="modal__content">
-					<p>Hi <span id="display-username"></span>, What game mode do you think you can handle?</p>
-					<select name="" id="">
-						<option value="easy">I just started out!</option>
-						<option value="normal">I think I'm good but I'm not sure.</option>
-						<option value="hard">I'm an expert in this.</option>
-					</select>
+					<p>
+                        Hi
+                        <span id="display-username"></span>,
+                        Are you ready for this challange?
+                    </p>
 				</article>
+                <!-- end article -->
 
+                <!-- start footer -->
 				<footer class="modal__footer">
-					<button class="btn" onclick="startGame()">Start Game</button>
+					<button class="btn" onclick="startGame()">Yes!</button>
 				</footer>
-			</div>
+                <!-- end footer -->
 
-			<!-- <div class="modal modal__start">
+			</div>
+            <!-- end modal start game -->
+
+            <!-- start modal end game -->
+            <div class="modal modal__end" id="end-game">
+
+                <!-- start header -->
 				<header class="modal__header">
+                    <!-- result text -->
+                    <h1 id="result-text"></h1>
+
+                    <!-- stars -->
+                    <ul class="score__stars">
+                        <!-- small star -->
+    					<li class="score__star__icon score__end score__star__icon-small icon__one">
+
+    						<i class="far" id="star-one-end"></i>
+
+    					</li>
+                        <!-- big star -->
+    					<li class="score__star__icon score__end-middle icon__two">
+
+    						<i class="far" id="star-two-end"></i>
+
+    					</li>
+                        <!-- small star -->
+    					<li class="score__star__icon score__end score__star__icon-small icon__three">
+
+    						<i class="far" id="star-three-end"></i>
+
+    					</li>
+    				</ul>
+                    <!-- end stars -->
 
 				</header>
+                <!-- end header -->
 
+                <!-- start article -->
 				<article class="modal__content">
+                    <!-- score -->
+                    <h1 class="modal__end__score">Your score is <span id="score-results"></span></h1>
+
+                    <!-- highscore -->
+                    <h3 class="modal__end__highscore">Highscore <span id="highscore"></span></h3>
+
+                    <!-- subtext -->
+					<h3 class="modal__end__subtext">Hi
+                        <span id="user-end"></span>,
+                        You played
+                        <span id="min-end"></span>
+                        <span id="sec-end"></span>
+                        and took <span id="moves-end"></span>
+                        moves.
+                    </h3>
+                    <!-- end subtext -->
 
 				</article>
+                <!-- end article -->
 
+                <!-- start footer -->
 				<footer class="modal__footer">
-
+					<button class="btn" onclick="reset()">Play Again</button>
 				</footer>
+                <!-- end footer -->
+
 			</div>
-
-			<div class="modal modal__win">
-				<haeder class="modal__header">
-
-				</haeder>
-
-				<article class="modal__content">
-
-				</article>
-
-				<footer class="modal__footer">
-
-				</footer>
-			</div>
-
-			<div class="modal modal__scores">
-				<haeder class="modal__header">
-
-				</haeder>
-
-				<article class="modal__content">
-
-				</article>
-
-				<footer class="modal__footer">
-
-				</footer>
-			</div>
-
-			<div class="modal modal__settings">
-				<haeder class="modal__header">
-
-				</haeder>
-
-				<article class="modal__content">
-
-				</article>
-
-				<footer class="modal__footer">
-
-				</footer>
-			</div> -->
 			<!-- end modals -->
 
 		</main>
