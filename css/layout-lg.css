@@ -1,0 +1,13 @@
+.game__deck__card {
+  width: 125px;
+  height: 125px;
+}
+
+.game {
+  padding: 1em;
+}
+
+.game-show ul {
+  grid-gap: 0;
+  grid-row-gap: 50px;
+}
