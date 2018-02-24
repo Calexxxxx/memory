@@ -8,7 +8,6 @@ The game counts the amount of moves and at a certain amount the stars start to r
 
 The goal is to match the cards in as less moves as possible.
 
-
 ## View project live
 
 [Go to the live version](https://calexxxxx.github.io/memory/)
@@ -29,6 +28,6 @@ Match cards! every 2 turned cards count as one move
 
 ![Match Cards](https://github.com/Calexxxxx/memory/blob/master/img/match-cards.jpg 'Match Cards')
 
-You Won! 
+You Won!
 
-![Mtach Cards](https://github.com/Calexxxxx/memory/blob/master/img/game-end.jpg 'Match Cards')
+![Game Won](https://github.com/Calexxxxx/memory/blob/master/img/game-end.jpg 'Game won')
