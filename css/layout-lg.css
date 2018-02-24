@@ -8,6 +8,5 @@
 }
 
 .game-show ul {
-  grid-gap: 0;
-  grid-row-gap: 50px;
+  grid-row-gap: 12px;
 }
