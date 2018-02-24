@@ -270,6 +270,8 @@ function closeCard() {
 }
 
 function endGame(moves) {
+  userEnd = localStorage.getItem('username');
+
   game.classList.remove('game-show');
   score.classList.remove('score-show');
 
